@@ -20,7 +20,10 @@ seed:
 	docker-compose exec app php artisan db:seed
 
 test:
-	docker-compose exec app php artisan test
+	docker-compose exec app vendor/bin/phpunit
 
 bash:
-	docker exec -it laravelchallenge_app bash
+	docker-compose exec app bash
+
+load-entities:
+	docker-compose exec app php artisan load:entities
